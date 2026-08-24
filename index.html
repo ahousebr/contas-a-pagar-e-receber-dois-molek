@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRR Bandeirantes — Contas a Pagar e Fluxo</title>
-<style>
+<title>Auto Posto Dois Molek — Posição de Caixa</title><style>
 :root{--ink:#14181d;--ink2:#404a54;--muted:#79848f;--line:#e4e7ea;--paper:#f6f5f2;--card:#fff;--brand:#0e5a3c;--brand2:#127a51;--red:#b0341d;--amber:#c8791b;--blue:#215e8c;--chip:#eef1ee;--shadow:0 1px 2px rgba(16,24,32,.04),0 8px 24px rgba(16,24,32,.06);}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -16,9 +15,9 @@ h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:600;letter-spac
 .hero .cnpj{color:#bcd9ee;font-size:13px}
 .hero .meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:20px;font-size:13px;color:#bcd9ee}
 .hero .meta b{color:#fff}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px;position:relative;z-index:2}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;position:relative;z-index:2}
 .kpi{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:16px;position:relative}
-.kpi .n{font-family:Georgia,serif;font-size:23px;font-weight:600;color:#fff;line-height:1.15}
+.kpi .n{font-family:Georgia,serif;font-size:26px;font-weight:600;color:#fff;line-height:1.1}
 .kpi .l{font-size:12px;color:#bcd9ee;margin-top:6px}
 .kpi.pending{border-style:dashed;opacity:.85}
 .kpi .soon{position:absolute;top:10px;right:10px;font-size:9px;letter-spacing:.05em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:2px 6px;border-radius:5px;color:#fff}
@@ -43,26 +42,13 @@ section{padding:36px 0}
 .rankrow .pos{width:22px;height:22px;border-radius:6px;background:var(--brand);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .rankrow .rn{flex:1;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rankrow .rv{font-size:13px;font-weight:700;color:var(--brand);flex-shrink:0;font-variant-numeric:tabular-nums}
-/* fluxo de caixa */
-.cashbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0;box-shadow:var(--shadow);overflow:hidden}
-.cashbox .head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.cashbox .head h4{font-family:Georgia,serif;font-size:17px;font-weight:600;margin:0}
-.cashbox .head .badge{font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px}
-.badge.pos{background:#e5f4ec;color:#1d7a4f}.badge.neg{background:#f7dcd6;color:#a02d18}
-.flow{padding:8px 22px 18px}
-.frow{display:grid;grid-template-columns:1.6fr 1fr;gap:8px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14.5px;align-items:center}
-.frow .lbl{color:var(--ink2)}.frow .lbl small{display:block;color:var(--muted);font-size:11.5px;font-weight:400;margin-top:2px}
-.frow .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;font-size:15px}
-.frow.pay .v{color:var(--red)}.frow.recv .v{color:var(--brand)}
-.frow.wait .v{color:var(--muted);font-weight:500;font-style:italic;font-size:13px}
-.frow.total{border-top:2px solid var(--ink);border-bottom:none;margin-top:4px;padding-top:14px;font-size:16px}
-.frow.total .lbl{font-weight:700;color:var(--ink)}
-.frow.total .v{font-size:20px;font-family:Georgia,serif}
-.frow.total.pos .v{color:#1d7a4f}.frow.total.neg .v{color:#a02d18}
-.verdict{padding:16px 22px;font-size:13.5px;line-height:1.5}
-.verdict.pos{background:#f0f9f4;color:#1d5f3f;border-top:1px solid #d3ebdd}
-.verdict.neg{background:#fdf3f1;color:#8a3020;border-top:1px solid #f0d9d2}
-.macro-note{background:#fff8ec;border:1px solid #f0d9a8;border-radius:10px;padding:14px 16px;font-size:13.5px;color:#8a6412;margin-top:16px}
+.decision{background:linear-gradient(135deg,#f0ede6,#f6f5f2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-top:18px}
+.decision h4{font-family:Inter;font-size:14px;font-weight:600;margin:0 0 12px}
+.decrow{display:grid;grid-template-columns:1.5fr 1fr;gap:8px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.decrow:last-child{border-bottom:none}
+.decrow .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.decrow.pay .v{color:var(--red)}.decrow.recv .v{color:var(--brand)}.decrow.wait .v{color:var(--muted);font-weight:500;font-style:italic}
+.decrow.saldo{border-top:2px solid var(--ink);border-bottom:none;margin-top:6px;padding-top:12px;font-size:15px;font-weight:700}
 .tools{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding:14px 0;width:100%;left:0}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .search{flex:1;min-width:220px;position:relative}
@@ -86,195 +72,67 @@ tbody tr:hover{background:#fafbfa}
 tbody tr.done{opacity:.5}tbody tr.done .nm{text-decoration:line-through}
 .nm{font-weight:600;color:var(--ink);word-break:break-word}.sub2{font-size:11.5px;color:var(--muted);margin-top:2px}
 .val{font-weight:700;font-variant-numeric:tabular-nums}
+.vpill{display:inline-block;padding:3px 9px;border-radius:20px;font-size:11.5px;font-weight:600}
 .ck{width:17px;height:17px;cursor:pointer;accent-color:var(--brand)}
 .empty{text-align:center;padding:50px;color:var(--muted)}
+.macro-note{background:#fff8ec;border:1px solid #f0d9a8;border-radius:10px;padding:14px 16px;font-size:13.5px;color:#8a6412;margin-top:16px}
 .more{text-align:center;margin:18px 0}
 footer{padding:30px 0 50px;color:var(--muted);font-size:12.5px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
 .hidden{display:none}
-@media(max-width:1100px){.kpis{grid-template-columns:repeat(3,1fr)}}@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.gridcharts{grid-template-columns:1fr}.hide-m{display:none}}
-@media(max-width:560px){.kpis{grid-template-columns:1fr 1fr}.frow,.frow.total{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.gridcharts{grid-template-columns:1fr}.decrow{grid-template-columns:1fr 1fr}.hide-m{display:none}}
+@media(max-width:560px){.kpis{grid-template-columns:1fr 1fr}}
+
+.hero.postos{background:linear-gradient(160deg,#0e5a3c 0%,#0a3f2a 100%)}
+.hero.grupo{background:linear-gradient(160deg,#1d2b33 0%,#0d161b 100%)}
+.kpi.neg .n{color:#ffc9bd}.kpi.pos .n{color:#b7f0d4}
+.decrow.neg .v{color:#ff9d86}
+.alert{background:#fdf0ec;border:1px solid #f0c4b6;border-left:3px solid var(--red);border-radius:10px;padding:14px 16px;font-size:13.5px;color:#7d2b16;margin-top:14px}
+.alert b{color:#6a1f0e}
+.ok{background:#eef7f1;border:1px solid #bfe0cc;border-left:3px solid var(--brand);border-radius:10px;padding:14px 16px;font-size:13.5px;color:#14513a;margin-top:14px}
+.utable{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px}
+.utable th{background:#f0f2f0;text-align:left;padding:10px 12px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);font-weight:700;white-space:nowrap}
+.utable th.r,.utable td.r{text-align:right}
+.utable td{padding:10px 12px;border-bottom:1px solid #f0f1f2;font-variant-numeric:tabular-nums}
+.utable tr.tot td{font-weight:700;border-top:2px solid var(--ink);background:#fafbfa}
+.neg{color:var(--red);font-weight:700}.pos{color:var(--brand);font-weight:700}
+.age{display:flex;flex-direction:column;gap:8px}
+.agerow{display:flex;align-items:center;gap:10px;font-size:13px}
+.agerow .al{width:110px;flex-shrink:0;color:var(--ink2)}
+.agerow .at{flex:1;background:var(--chip);border-radius:6px;height:22px}
+.agerow .af{height:100%;border-radius:6px}
+.agerow .av{width:118px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0}
+@media(max-width:640px){.agerow .al{width:78px;font-size:11.5px}.agerow .av{width:96px;font-size:12px}}
 </style></head><body>
-<header class="hero"><div class="wrap">
-<div class="eyebrow">Rede Bandeirantes · Financeiro · Fluxo do Período</div>
-<h1>TRR Bandeirantes</h1>
-<div class="cnpj mono">CNPJ 28.516.306/0001-14</div>
-<div class="meta"><div>Período · <b>24/08/2026 a 31/08/2026</b></div><div>Situação · <b>Pendente</b></div><div>Gerado em · <b>24/08/2026</b></div></div>
-<div class="kpis">
-<div class="kpi"><div class="n">R$ 1.637.690,89</div><div class="l">A pagar no período</div></div>
-<div class="kpi"><div class="n">R$ 0,00</div><div class="l">A receber no período<br><span style="opacity:.75">nenhum título vence de 24 a 31/08</span></div></div>
-<div class="kpi"><div class="n" style="color:#ffc9bd">− R$ 1.637.690,89</div><div class="l">Falta em caixa no período</div></div>
-<div class="kpi pending"><div class="soon">a definir</div><div class="n">—</div><div class="l">Limite bancário disponível</div></div>
-<div class="kpi" style="border-color:rgba(255,255,255,.30)"><div class="n" style="color:#b7f0d4">R$ 3.683.297,41</div><div class="l">Vencido a cobrar<br><span style="opacity:.75">61 clientes, 165 títulos</span></div></div>
-</div></div></header>
-
-<div class="wrap"><div class="tabs">
-<div class="tab on" data-tab="macro">Visão geral</div>
-<div class="tab" data-tab="detail" id="tabDetBtn">Detalhes a pagar</div>
-<div class="tab" data-tab="receber" id="tabRecBtn">Detalhes a receber</div>
-
-</div></div>
-
-<div id="tab-macro">
+<header class="hero postos"><div class="wrap">
+<div class="eyebrow">Rede Bandeirantes · Financeiro · Posição de Caixa</div>
+<h1>Auto Posto Dois Molek</h1>
+<div class="cnpj mono">CNPJ 09.077.866/0001-75</div>
+<div class="meta"><div>A pagar · <b>25 a 31/08/2026</b></div><div>A receber · <b>24 a 31/08/2026</b></div><div>Gerado em · <b>24/08/2026</b></div></div>
+<div class="kpis"><div class="kpi "><div class="n">R$ 42.389,67</div><div class="l">A pagar no período</div></div><div class="kpi "><div class="n">R$ 6.855,09</div><div class="l">A receber no período</div></div><div class="kpi neg"><div class="n">− R$ 35.534,58</div><div class="l">Falta em caixa</div></div><div class="kpi "><div class="n">R$ 19.577,53</div><div class="l">Vencido a cobrar</div></div></div></div></header>
 <section><div class="wrap">
-<div class="sec-head"><span class="idx">01</span><div><h2>Vou ter caixa para o período?</h2><p>O que entra menos o que sai entre 24 e 31/08 — a base para decidir empréstimo, limite ou antecipação.</p></div></div>
-<div class="cashbox">
-<div class="head"><h4>Fluxo projetado do período</h4><span class="badge neg">Falta de caixa</span></div>
-<div class="flow">
-<div class="frow recv"><div class="lbl">A receber de clientes (24–31/08)<small>nenhum título vence no período</small></div><div class="v">R$ 0,00</div></div>
-<div class="frow recv"><div class="lbl">Cartões / PIX a compensar<small>saldo a receber das operadoras</small></div><div class="v">R$ 0,00</div></div>
-<div class="frow pay"><div class="lbl">A pagar no período<small>61 títulos em aberto, 24–31/08</small></div><div class="v">− R$ 1.637.690,89</div></div>
-<div class="frow total neg"><div class="lbl">Saldo projetado do período</div><div class="v">− R$ 1.637.690,89</div></div>
-<div class="frow recv" style="border-top:1px dashed #e4e7ea;margin-top:6px;padding-top:12px"><div class="lbl">Carteira vencida a cobrar<small>fora do período — depende de cobrança, não de calendário</small></div><div class="v">R$ 3.683.297,41</div></div>
-</div>
-<div class="verdict neg">O relatório soma R$ 2.061.781,82 em títulos, dos quais R$ 424.090,93 já foram pagos — restam <b>R$ 1.637.690,89</b> a desembolsar até 31/08. Do outro lado, nenhum título da carteira de cobrança vence dentro do período: os R$ 3.683.297,41 são carteira já vencida, que só entra se for cobrada. O TRR precisa de <b>R$ 1.637.690,89</b> vindos de cobrança, de caixa de outra unidade ou de crédito bancário.</div>
-</div>
-<div class="macro-note">Cinco fornecedores de combustível concentram <b>R$ 1.516.990,00</b> — 93% de tudo que há a pagar. São eles que decidem se a semana fecha. Fora do período, há <b>R$ 3.683.297,41</b> em recebíveis vencidos a cobrar. O <b>limite bancário disponível</b> ainda será informado pelo Lauro.</div>
-</div></section>
-
-</div>
-
-
-
-<div id="tab-detail" class="hidden">
-<section><div class="wrap">
-<div class="sec-head"><span class="idx">02</span><div><h2>Detalhes a pagar</h2><p>Títulos em aberto com vencimento entre 24 e 31/08.</p></div></div>
-<div class="macro-note" style="margin-bottom:18px">O relatório traz 76 títulos somando R$ 2.061.781,82, mas R$ 424.090,93 já foram baixados como pagos. A lista abaixo mostra apenas os <b>61 títulos que ainda precisam ser desembolsados</b>, totalizando R$ 1.637.690,89.</div>
-<div class="tools"><div class="toolbar">
-<div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-<input id="q" placeholder="Buscar fornecedor, título ou código..."></div>
-<select id="sort"><option value="valor-desc">Maior valor</option><option value="valor-asc">Menor valor</option><option value="forn-asc">Fornecedor (A-Z)</option><option value="venc-asc">Vencimento</option></select>
-<button class="btn" id="btnCsv">Exportar CSV</button>
-</div><div class="chips" id="chips"></div></div>
-<div class="count" id="count"></div>
-<div id="tableWrap"></div>
-<div class="more"><button class="btn" id="btnMore">Carregar mais</button></div>
-</div></section>
-</div>
-
-<div id="tab-receber" class="hidden">
-<section><div class="wrap">
-<div class="sec-head"><span class="idx">03</span><div><h2>Detalhes a receber</h2><p>Carteira de cobrança do TRR · 61 clientes, 165 títulos.</p></div></div>
-<div class="macro-note" style="margin-bottom:18px">⚠️ Os 165 títulos desta carteira têm vencimento <b>até 23/08</b> — o mais recente venceu no dia anterior ao início do período. Nenhum deles cai entre 24 e 31/08. Por isso todos aparecem marcados como <b>Em aberto ≤23/08</b>: a entrada desse dinheiro depende de cobrança, não de calendário. Dos R$ 3.683.297,41 de saldo, <b>R$ 418.787,10</b> já são juros acumulados por atraso.</div>
-<div class="tools"><div class="toolbar">
-<div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-<input id="recQ" placeholder="Buscar cliente, código ou origem..."></div>
-<select id="recSort"><option value="valor-desc">Maior valor</option><option value="valor-asc">Menor valor</option><option value="nome-asc">Nome (A–Z)</option></select>
-<button class="btn" id="recCsv">Exportar CSV</button>
-</div><div class="chips" id="recChips"></div></div>
-<div class="count" id="recCount"></div>
-<div id="recWrap"></div>
-<div class="more"><button class="btn" id="recMore">Carregar mais</button></div>
-</div></section>
-</div>
-
-<footer><div class="wrap">TRR Bandeirantes · CNPJ 28.516.306/0001-14 · Período 24/08/2026 a 31/08/2026<br>Relatório gerado a partir dos extratos Argo Gerenciador e Plenustech · Documento interno Rede Bandeirantes.</div></footer>
-<script>
-const ROWS=[{"forn": "ON PETRO - DISTRIBUIDORA DE COMBUSTIVEIS LTDA", "cnpj": "cód. 2564", "ref": "—", "venc": "26/08/2026", "valor": 369540.0}, {"forn": "CIAPETRO DISTRIBUIDORA DE COMBUSTIVEIS LTDA", "cnpj": "cód. 746", "ref": "—", "venc": "31/08/2026", "valor": 318760.0}, {"forn": "CIAPETRO DISTRIBUIDORA DE COMBUSTIVEIS LTDA", "cnpj": "cód. 2574", "ref": "—", "venc": "25/08/2026", "valor": 284440.0}, {"forn": "IMPERIAL DISTRIBUIDORA DE PETROLEO LTDA", "cnpj": "cód. 1542", "ref": "—", "venc": "26/08/2026", "valor": 272500.0}, {"forn": "IMPERIAL DISTRIBUIDORA DE PETROLEO LTDA", "cnpj": "cód. 1542", "ref": "—", "venc": "31/08/2026", "valor": 271750.0}, {"forn": "BANCO BRADESCO S.A", "cnpj": "cód. 1081", "ref": "—", "venc": "30/08/2026", "valor": 23398.62}, {"forn": "TRR BANDEIRANTES LTDA (tributos)", "cnpj": "cód. 3", "ref": "—", "venc": "31/08/2026", "valor": 19252.88}, {"forn": "TRR BANDEIRANTES LTDA (tributos)", "cnpj": "cód. 3", "ref": "—", "venc": "31/08/2026", "valor": 7651.04}, {"forn": "AURIMAR MACKIEVICZ", "cnpj": "cód. 682", "ref": "—", "venc": "31/08/2026", "valor": 4750.0}, {"forn": "E. NORBERTO INDUSTRIA E COM DE ACO LTDA", "cnpj": "cód. 2967", "ref": "—", "venc": "30/08/2026", "valor": 4040.64}, {"forn": "PNEU TECH LTDA", "cnpj": "cód. 2815", "ref": "—", "venc": "27/08/2026", "valor": 3917.9}, {"forn": "CALIANI PNEUS LTDA", "cnpj": "cód. 948", "ref": "—", "venc": "27/08/2026", "valor": 3680.0}, {"forn": "PANTANAL INSPECOES LTDA", "cnpj": "cód. 274", "ref": "—", "venc": "28/08/2026", "valor": 3600.0}, {"forn": "EDSON C. CALICCHIO LTDA", "cnpj": "cód. 2958", "ref": "—", "venc": "31/08/2026", "valor": 3578.0}, {"forn": "R. CARVALHO & A. MARTOS LTDA", "cnpj": "cód. 1944", "ref": "—", "venc": "28/08/2026", "valor": 3279.89}, {"forn": "DR TRUCK OFICINA SCANIA", "cnpj": "cód. 2963", "ref": "—", "venc": "28/08/2026", "valor": 2420.5}, {"forn": "NITRO EQUIPAMENTOS E", "cnpj": "cód. 20", "ref": "—", "venc": "30/08/2026", "valor": 2380.0}, {"forn": "LUCAS M. DE QUADROS GUIMARAES", "cnpj": "cód. 1524", "ref": "—", "venc": "30/08/2026", "valor": 2370.81}, {"forn": "AUTO SUECO CENTRO-OESTE - CONCESSIONARIA DE VEICULOS LTDA", "cnpj": "cód. 2064", "ref": "—", "venc": "28/08/2026", "valor": 2093.21}, {"forn": "S. J. DE LIMA & M. B. DE ARRUDA LTDA", "cnpj": "cód. 1963", "ref": "—", "venc": "27/08/2026", "valor": 1975.0}, {"forn": "CALIANI PNEUS LTDA", "cnpj": "cód. 948", "ref": "—", "venc": "25/08/2026", "valor": 1950.0}, {"forn": "EDSON C. CALICCHIO LTDA", "cnpj": "cód. 2958", "ref": "—", "venc": "27/08/2026", "valor": 1900.0}, {"forn": "RENATO AUTO PEÇAS", "cnpj": "cód. 2091", "ref": "—", "venc": "26/08/2026", "valor": 1800.0}, {"forn": "ALIS CAMINHOES LTDA", "cnpj": "cód. 1072", "ref": "—", "venc": "28/08/2026", "valor": 1722.6}, {"forn": "J. AUGUSTINI ME", "cnpj": "cód. 969", "ref": "—", "venc": "26/08/2026", "valor": 1642.0}, {"forn": "LUIZ ANTONIO DA SILVA", "cnpj": "cód. 2015", "ref": "—", "venc": "30/08/2026", "valor": 1603.7}, {"forn": "RENATO AUTO PEÇAS", "cnpj": "cód. 2091", "ref": "—", "venc": "26/08/2026", "valor": 1496.0}, {"forn": "S. J. DE LIMA & M. B. DE ARRUDA LTDA", "cnpj": "cód. 1963", "ref": "—", "venc": "25/08/2026", "valor": 1490.0}, {"forn": "KAUANY EDUARDA MORTARI DOS SANTOS", "cnpj": "cód. 2236", "ref": "—", "venc": "26/08/2026", "valor": 1300.0}, {"forn": "V. BARBOSA DOS SANTOS", "cnpj": "cód. 335", "ref": "—", "venc": "27/08/2026", "valor": 1300.0}, {"forn": "S. J. DE LIMA & M. B. DE ARRU1D9A6", "cnpj": "cód. 1963", "ref": "—", "venc": "30/08/2026", "valor": 1137.92}, {"forn": "LUCAS M. DE QUADROS GUIMARAES", "cnpj": "cód. 1524", "ref": "—", "venc": "27/08/2026", "valor": 948.05}, {"forn": "SINDICATO NACIONAL DO COMERCIO TRANSPORTADOR-REVENDEDOR-RETALHISTA", "cnpj": "cód. 604", "ref": "—", "venc": "30/08/2026", "valor": 806.13}, {"forn": "AGUILERA AUTOPECAS LTDA", "cnpj": "cód. 254", "ref": "—", "venc": "29/08/2026", "valor": 805.0}, {"forn": "FOGUINHO AUTOPECA E POSTO DE MOLAS LTDA", "cnpj": "cód. 2877", "ref": "—", "venc": "26/08/2026", "valor": 800.0}, {"forn": "FOGUINHO AUTOPECA E POSTO DE MOLAS LTDA", "cnpj": "cód. 2877", "ref": "—", "venc": "26/08/2026", "valor": 800.0}, {"forn": "AUTO SUECO CENTRO-OESTE - CONCESSIONARIA DE VEICULOS LTDA", "cnpj": "cód. 2064", "ref": "—", "venc": "28/08/2026", "valor": 770.06}, {"forn": "DR TRUCK OFICINA SCANIA", "cnpj": "cód. 2963", "ref": "—", "venc": "28/08/2026", "valor": 765.0}, {"forn": "R DE SOUZA PINTO COMERCIO", "cnpj": "cód. 173", "ref": "—", "venc": "25/08/2026", "valor": 716.02}, {"forn": "ROTA OESTE VEICULOS LTDA", "cnpj": "cód. 82", "ref": "—", "venc": "28/08/2026", "valor": 685.67}, {"forn": "L.F. OLIVEIRA AR CONDICIONA1D1O67", "cnpj": "cód. 1167", "ref": "—", "venc": "25/08/2026", "valor": 650.0}, {"forn": "ROCKENBACH & STELA LTDA", "cnpj": "cód. 2088", "ref": "—", "venc": "30/08/2026", "valor": 628.0}, {"forn": "VITORIA DESCONTAMINADORA COMERCIO E SERVICOS LTDA", "cnpj": "cód. 450", "ref": "—", "venc": "26/08/2026", "valor": 600.0}, {"forn": "FORTBRAS AUTOPECAS S.A.", "cnpj": "cód. 1431", "ref": "—", "venc": "26/08/2026", "valor": 588.0}, {"forn": "RIVAS RAITZ COMERCIO DE PECAS LTDA", "cnpj": "cód. 2940", "ref": "—", "venc": "29/08/2026", "valor": 586.66}, {"forn": "TOP COMERCIO DE TINTAS LTDA", "cnpj": "cód. 1537", "ref": "—", "venc": "27/08/2026", "valor": 542.46}, {"forn": "FORTBRAS AUTOPECAS S.A.", "cnpj": "cód. 1431", "ref": "—", "venc": "31/08/2026", "valor": 530.0}, {"forn": "FORTBRAS AUTOPECAS S.A.", "cnpj": "cód. 1431", "ref": "—", "venc": "31/08/2026", "valor": 530.0}, {"forn": "M. C. BRAGA INFORMATICA", "cnpj": "cód. 48", "ref": "—", "venc": "30/08/2026", "valor": 525.0}, {"forn": "LUIZ ANTONIO DA SILVA", "cnpj": "cód. 2015", "ref": "—", "venc": "30/08/2026", "valor": 480.75}, {"forn": "MANDADORI E CONTE LTDA", "cnpj": "cód. 610", "ref": "—", "venc": "28/08/2026", "valor": 356.34}, {"forn": "V. DO AMARAL RODRIGUES", "cnpj": "cód. 2467", "ref": "—", "venc": "28/08/2026", "valor": 350.0}, {"forn": "A UNIDADE DA AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES (ANTT) EM MATO GROSSO", "cnpj": "cód. 2707", "ref": "—", "venc": "31/08/2026", "valor": 257.34}, {"forn": "S. J. DE LIMA & M. B. DE ARRUDA LTDA", "cnpj": "cód. 1963", "ref": "—", "venc": "25/08/2026", "valor": 239.9}, {"forn": "LUCAS M. DE QUADROS GUIMARAES", "cnpj": "cód. 1524", "ref": "—", "venc": "29/08/2026", "valor": 200.0}, {"forn": "VERGRAN COMERCIAL LTDA", "cnpj": "cód. 1012", "ref": "—", "venc": "28/08/2026", "valor": 188.0}, {"forn": "A.P. JULIANOTTI & CIA LTDA", "cnpj": "cód. 787", "ref": "—", "venc": "25/08/2026", "valor": 180.0}, {"forn": "S. J. DE LIMA & M. B. DE ARRUDA LTDA", "cnpj": "cód. 1963", "ref": "—", "venc": "25/08/2026", "valor": 175.0}, {"forn": "ROBERTO DE LEMOS MORAIS", "cnpj": "cód. 754", "ref": "—", "venc": "26/08/2026", "valor": 136.8}, {"forn": "EDELSON APARECIDO PADILHA", "cnpj": "cód. 3000", "ref": "—", "venc": "26/08/2026", "valor": 80.0}, {"forn": "AUTO ELETRICA JAVALI LTDA", "cnpj": "cód. 1936", "ref": "—", "venc": "30/08/2026", "valor": 50.0}];
-const ISTRR=1, MACRO=1;
-const NUM=n=>n.toLocaleString('pt-BR');
-const BRL=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2});
-const BRL0=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+<div class="sec-head"><span class="idx">01</span><div><h2>Quanto falta para pagar a semana</h2><p>O que vence de 25 a 31/08 contra o que entra de 24 a 31/08.</p></div></div>
+<div class="decision">
+<h4>Posição de Auto Posto Dois Molek</h4>
+<div class="decrow pay"><div>Total a pagar (25–31/08) · 9 títulos</div><div class="v">R$ 42.389,67</div></div>
+<div class="decrow recv"><div>Clientes a receber (24–31/08) · 5 clientes</div><div class="v">R$ 2.594,59</div></div>
+<div class="decrow recv"><div>Cartões, PIX e vouchers</div><div class="v">R$ 4.260,50</div></div>
+<div class="decrow saldo neg"><div>Falta em caixa</div><div class="v">− R$ 35.534,58</div></div>
+<div class="decrow wait"><div>Vencido até 23/08 · 11 clientes</div><div class="v">R$ 19.577,53</div></div>
+</div><div class="alert">Esta unidade fecha a semana com falta de <b>R$ 35.534,58</b>. Tem <b>R$ 19.577,53</b> em títulos já vencidos — cobrar essa carteira é o caminho mais rápido para fechar o buraco.</div></div></section><section><div class="wrap">
+<div class="sec-head"><span class="idx">02</span><div><h2>Maiores compromissos e maiores devedores</h2><p>Onde está concentrado o dinheiro que sai e o que está parado para entrar.</p></div></div>
+<div class="gridcharts"><div class="card"><h4>12 maiores contas a pagar</h4><p class="cap">Vencimento entre 24 e 31/08.</p><div class="tscroll"><table class="utable"><thead><tr><th class="">Fornecedor</th><th class="r">Venc.</th><th class="r">Valor</th></tr></thead><tbody><tr><td class="">CIAPETRO DISTRIBUIDORA DE COMBUSTIVEIS LTDA</td><td class="r">31/08</td><td class="r">R$ 18.600,00</td></tr><tr><td class="">CIAPETRO DISTRIBUIDORA DE COMBUSTIVEIS LTDA</td><td class="r">25/08</td><td class="r">R$ 16.440,00</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="r">31/08</td><td class="r">R$ 1.400,00</td></tr><tr><td class="">M C COM DE PROD AUTOMOTIVO LTDA</td><td class="r">31/08</td><td class="r">R$ 1.281,13</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="r">31/08</td><td class="r">R$ 1.120,00</td></tr><tr><td class="">M C COM DE PROD AUTOMOTIVO LTDA</td><td class="r">31/08</td><td class="r">R$ 1.023,54</td></tr><tr><td class="">NITRO EQUIPAMENTOS E ASSISTENCIA TECNICA EM </td><td class="r">28/08</td><td class="r">R$ 845,00</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="r">31/08</td><td class="r">R$ 840,00</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="r">31/08</td><td class="r">R$ 840,00</td></tr></tbody></table></div></div><div class="card"><h4>12 maiores títulos vencidos</h4><p class="cap">Clientes com saldo em aberto até 23/08.</p><div class="tscroll"><table class="utable"><thead><tr><th class="">Cliente</th><th class="r">Tít.</th><th class="r">Saldo</th></tr></thead><tbody><tr><td class="">DOMINGOS GONÇALVES LOBATO</td><td class="r">1</td><td class="r">R$ 6.844,63</td></tr><tr><td class="">PAULO SILAS ALVES</td><td class="r">1</td><td class="r">R$ 6.661,87</td></tr><tr><td class="">RANIERI QUEIROZ</td><td class="r">1</td><td class="r">R$ 2.027,41</td></tr><tr><td class="">GILNEI CONTINI</td><td class="r">1</td><td class="r">R$ 1.151,91</td></tr><tr><td class="">GILSON CONTINI</td><td class="r">2</td><td class="r">R$ 1.108,24</td></tr><tr><td class="">SERGIO FERNANDES DA SILVA</td><td class="r">1</td><td class="r">R$ 666,39</td></tr><tr><td class="">DANIEL CAMPANA</td><td class="r">1</td><td class="r">R$ 577,29</td></tr><tr><td class="">MILTON JOSE DE ALMEIDA ARAUJO</td><td class="r">1</td><td class="r">R$ 380,05</td></tr><tr><td class="">OSVALDO ANTONIO PIVA</td><td class="r">1</td><td class="r">R$ 76,63</td></tr><tr><td class="">NILCO CONTINI</td><td class="r">1</td><td class="r">R$ 70,92</td></tr><tr><td class="">HERICK DA SILVA</td><td class="r">1</td><td class="r">R$ 12,19</td></tr></tbody></table></div></div></div></div></section><div class="wrap"><div class="tabs"><div class="tab on" data-tab="pag">Detalhes a pagar · 9 títulos</div><div class="tab " data-tab="rec">Detalhes a receber · 22 lançamentos</div></div></div><div data-pane="pag" class=""><section><div class="wrap">
+<div class="sec-head"><span class="idx">03</span><div><h2>Contas a pagar de Auto Posto Dois Molek</h2><p>9 títulos com vencimento entre 25 e 31/08 · total R$ 42.389,67.</p></div></div>
+<div class="tscroll"><table class="utable"><thead><tr><th class="">Fornecedor</th><th class="">CNPJ</th><th class="r">Vencimento</th><th class="r">Valor</th></tr></thead><tbody><tr><td class="">CIAPETRO DISTRIBUIDORA DE COMBUSTIVEIS LTDA</td><td class="">01.466.091/0028-38</td><td class="r">31/08/2026</td><td class="r">R$ 18.600,00</td></tr><tr><td class="">CIAPETRO DISTRIBUIDORA DE COMBUSTIVEIS LTDA</td><td class="">01.466.091/0028-38</td><td class="r">25/08/2026</td><td class="r">R$ 16.440,00</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="">28.516.306/0001-14</td><td class="r">31/08/2026</td><td class="r">R$ 1.400,00</td></tr><tr><td class="">M C COM DE PROD AUTOMOTIVO LTDA</td><td class="">17.510.137/0001-99</td><td class="r">31/08/2026</td><td class="r">R$ 1.281,13</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="">28.516.306/0001-14</td><td class="r">31/08/2026</td><td class="r">R$ 1.120,00</td></tr><tr><td class="">M C COM DE PROD AUTOMOTIVO LTDA</td><td class="">17.510.137/0001-99</td><td class="r">31/08/2026</td><td class="r">R$ 1.023,54</td></tr><tr><td class="">NITRO EQUIPAMENTOS E ASSISTENCIA TECNICA EM HIDRAU</td><td class="">10.200.019/0001-35</td><td class="r">28/08/2026</td><td class="r">R$ 845,00</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="">28.516.306/0001-14</td><td class="r">31/08/2026</td><td class="r">R$ 840,00</td></tr><tr><td class="">TRR BANDEIRANTES LTDA</td><td class="">28.516.306/0001-14</td><td class="r">31/08/2026</td><td class="r">R$ 840,00</td></tr></tbody></table></div></div></section></div><div data-pane="rec" class="hidden"><section><div class="wrap">
+<div class="sec-head"><span class="idx">04</span><div><h2>Clientes a receber no período</h2><p>5 clientes com vencimento entre 24 e 31/08 · total R$ 2.594,59. Este é o dinheiro que entra dentro da semana a pagar.</p></div></div>
+<div class="tscroll"><table class="utable"><thead><tr><th class="">Cliente</th><th class="">CNPJ/CPF</th><th class="r">Títulos</th><th class="r">Limite do cliente</th><th class="r">Saldo</th></tr></thead><tbody><tr><td class="">VANDERLEI WELTER</td><td class="">734.420.700-15</td><td class="r">1</td><td class="r">R$ 10.000,00</td><td class="r">R$ 2.307,76</td></tr><tr><td class="">W O REPRESENTACOES LTDA</td><td class="">53.744.745/0001-21</td><td class="r">1</td><td class="r">R$ 0,00</td><td class="r">R$ 100,15</td></tr><tr><td class="">HERICK DA SILVA</td><td class="">063.343.571-66</td><td class="r">1</td><td class="r">R$ 500,00</td><td class="r">R$ 100,01</td></tr><tr><td class="">ENERGISA MATO GROSSO DIST.DE ENERGIA SA</td><td class="">03.467.321/0001-99</td><td class="r">1</td><td class="r">R$ 1.500,00</td><td class="r">R$ 54,67</td></tr><tr><td class="">LEANDRO CARDOSO DA SILVA</td><td class="">018.055.889-74</td><td class="r">1</td><td class="r">R$ 0,00</td><td class="r">R$ 32,00</td></tr></tbody></table></div></div></section><section><div class="wrap">
+<div class="sec-head"><span class="idx">05</span><div><h2>Cartões, PIX e vouchers a compensar</h2><p>6 formas de pagamento · total R$ 4.260,50. Vendas já realizadas, aguardando repasse da operadora dentro do período.</p></div></div>
+<div class="tscroll"><table class="utable"><thead><tr><th class="">Forma de pagamento</th><th class="r">Valor original</th><th class="r">Taxa / diferença</th><th class="r">Saldo a compensar</th></tr></thead><tbody><tr><td class="">PAGSEGURO - VISA CREDITO</td><td class="r">R$ 3.741,32</td><td class="r">R$ 70,33</td><td class="r">R$ 2.754,04</td></tr><tr><td class="">PAGSEGURO - MASTER CREDITO</td><td class="r">R$ 1.403,26</td><td class="r">R$ 26,36</td><td class="r">R$ 1.078,55</td></tr><tr><td class="">SITE - GTF - VOUCHER</td><td class="r">R$ 167,76</td><td class="r">R$ 6,54</td><td class="r">R$ 161,22</td></tr><tr><td class="">PAGSEGURO - ELO CREDITO</td><td class="r">R$ 226,89</td><td class="r">R$ 4,60</td><td class="r">R$ 157,57</td></tr><tr><td class="">SMARTNET - VR VOUCHER</td><td class="r">R$ 117,14</td><td class="r">R$ 8,02</td><td class="r">R$ 109,12</td></tr><tr><td class="">TICKETLOG - TICKETLOG CREDITO</td><td class="r">R$ 761,82</td><td class="r">R$ 32,00</td><td class="r">R$ 0,00</td></tr></tbody></table></div></div></section><section><div class="wrap">
+<div class="sec-head"><span class="idx">06</span><div><h2>Clientes com saldo vencido até 23/08</h2><p>11 clientes · total R$ 19.577,53. Fora do período — só entra se for cobrado. Use como lista de cobrança.</p></div></div>
+<div class="tscroll"><table class="utable"><thead><tr><th class="">Cliente</th><th class="">CNPJ/CPF</th><th class="r">Títulos</th><th class="r">Juros</th><th class="r">Saldo</th></tr></thead><tbody><tr><td class="">DOMINGOS GONÇALVES LOBATO</td><td class="">964.626.391-72</td><td class="r">1</td><td class="r">R$ 166,62</td><td class="r">R$ 6.844,63</td></tr><tr><td class="">PAULO SILAS ALVES</td><td class="">047.311.941-21</td><td class="r">1</td><td class="r">R$ 201,68</td><td class="r">R$ 6.661,87</td></tr><tr><td class="">RANIERI QUEIROZ</td><td class="">121.771.558-43</td><td class="r">1</td><td class="r">R$ 49,35</td><td class="r">R$ 2.027,41</td></tr><tr><td class="">GILNEI CONTINI</td><td class="">820.124.581-49</td><td class="r">1</td><td class="r">R$ 70,41</td><td class="r">R$ 1.151,91</td></tr><tr><td class="">GILSON CONTINI</td><td class="">866.008.939-15</td><td class="r">2</td><td class="r">R$ 29,38</td><td class="r">R$ 1.108,24</td></tr><tr><td class="">SERGIO FERNANDES DA SILVA</td><td class="">937.504.129-87</td><td class="r">1</td><td class="r">R$ 16,22</td><td class="r">R$ 666,39</td></tr><tr><td class="">DANIEL CAMPANA</td><td class="">967.402.998-20</td><td class="r">1</td><td class="r">R$ 13,75</td><td class="r">R$ 577,29</td></tr><tr><td class="">MILTON JOSE DE ALMEIDA ARAUJO</td><td class="">451.788.369-87</td><td class="r">1</td><td class="r">R$ 12,64</td><td class="r">R$ 380,05</td></tr><tr><td class="">OSVALDO ANTONIO PIVA</td><td class="">304.040.969-72</td><td class="r">1</td><td class="r">R$ 2,76</td><td class="r">R$ 76,63</td></tr><tr><td class="">NILCO CONTINI</td><td class="">282.850.009-82</td><td class="r">1</td><td class="r">R$ 4,12</td><td class="r">R$ 70,92</td></tr><tr><td class="">HERICK DA SILVA</td><td class="">063.343.571-66</td><td class="r">1</td><td class="r">R$ 0,31</td><td class="r">R$ 12,19</td></tr></tbody></table></div></div></section></div><script>
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
-  document.getElementById('tab-macro').classList.toggle('hidden',t.dataset.tab!=='macro');
-  const det=document.getElementById('tab-detail');if(det)det.classList.toggle('hidden',t.dataset.tab!=='detail');
-  const rec=document.getElementById('tab-receber');if(rec)rec.classList.toggle('hidden',t.dataset.tab!=='receber');
+  document.querySelectorAll('[data-pane]').forEach(p=>p.classList.toggle('hidden',p.dataset.pane!==t.dataset.tab));
 });
-if(ROWS.length){
-// chart por vencimento
-const byv={};ROWS.forEach(r=>byv[r.venc]=(byv[r.venc]||0)+r.valor);
-const vs=Object.keys(byv).sort((a,b)=>(a.split('/').reverse().join())-(b.split('/').reverse().join()));
-const maxv=Math.max(...Object.values(byv),1);
-const cv=document.getElementById('chartVenc');
-if(cv)cv.innerHTML=vs.map(v=>{const w=byv[v]/maxv*100;const lbl=BRL0(byv[v]);const inside=w>=26;return `<div class="barrow"><div class="lab">${v.slice(0,5)}</div><div class="track"><div class="fill bv" style="width:${Math.max(w,3)}%">${inside?lbl:''}</div>${inside?'':`<span style="position:absolute;left:calc(${Math.max(w,3)}% + 8px);top:50%;transform:translateY(-50%);font-size:12px;font-weight:600;color:var(--ink2)">${lbl}</span>`}</div></div>`;}).join('');
-const byf={};ROWS.forEach(r=>byf[r.forn]=(byf[r.forn]||0)+r.valor);
-const topF=Object.entries(byf).sort((a,b)=>b[1]-a[1]).slice(0,8);
-const rf=document.getElementById('rankForn');
-if(rf)rf.innerHTML=topF.map((e,i)=>`<div class="rankrow"><div class="pos">${i+1}</div><div class="rn">${e[0]}</div><div class="rv">${BRL0(e[1])}</div></div>`).join('');
-// detail table
-let done={};try{done=JSON.parse(localStorage.getItem('cp_contas-trr')||'{}')}catch(e){}
-const saveDone=()=>{try{localStorage.setItem('cp_contas-trr',JSON.stringify(done))}catch(e){}};
-ROWS.forEach((r,i)=>r._id='r'+i);
-const vencs=[...new Set(ROWS.map(r=>r.venc))].sort((a,b)=>(a.split('/').reverse().join())-(b.split('/').reverse().join()));
-let fVenc='all';
-const chips=[{id:'all',lab:'Todos os vencimentos',n:ROWS.length}].concat(vencs.map(v=>({id:v,lab:v,n:ROWS.filter(r=>r.venc===v).length})));
-const chipsEl=document.getElementById('chips');
-if(chipsEl){chipsEl.innerHTML=chips.map(c=>`<div class="fchip ${c.id==='all'?'on':''}" data-v="${c.id}">${c.lab}<span class="ct">${c.n}</span></div>`).join('');
-document.querySelectorAll('.fchip').forEach(el=>el.onclick=()=>{document.querySelectorAll('.fchip').forEach(x=>x.classList.remove('on'));el.classList.add('on');fVenc=el.dataset.v;LIMIT=100;render();});}
-const q=document.getElementById('q'),sortSel=document.getElementById('sort');
-let LIMIT=100;
-[q,sortSel].forEach(el=>{if(el)el.addEventListener('input',()=>{LIMIT=100;render();})});
-const btnMore=document.getElementById('btnMore');if(btnMore)btnMore.onclick=()=>{LIMIT+=100;render();};
-function filtered(){let r=ROWS.slice();
-  if(fVenc!=='all')r=r.filter(x=>x.venc===fVenc);
-  const term=(q&&q.value.trim().toLowerCase())||'';
-  if(term)r=r.filter(x=>(x.forn+' '+x.ref+' '+x.cnpj).toLowerCase().includes(term));
-  const s=(sortSel&&sortSel.value)||'valor-desc';
-  r.sort((a,b)=>s==='valor-desc'?b.valor-a.valor:s==='valor-asc'?a.valor-b.valor:s==='forn-asc'?a.forn.localeCompare(b.forn):s==='venc-asc'?(a.venc.split('/').reverse().join()).localeCompare(b.venc.split('/').reverse().join()):0);
-  return r;}
-function render(){const r=filtered();const shown=r.slice(0,LIMIT);const soma=r.reduce((s,x)=>s+x.valor,0);const dn=r.filter(x=>done[x._id]).length;
-  document.getElementById('count').innerHTML=`Exibindo <b>${NUM(shown.length)}</b> de <b>${NUM(r.length)}</b> títulos · total no filtro: <b>${BRL(soma)}</b> · <b>${dn}</b> pagos/conferidos`;
-  const head=`<tr><th style="width:40px"></th><th class="sortable" data-s="forn-asc">Fornecedor</th><th class="hide-m" style="width:120px">Ref./Nota</th><th class="sortable r" data-s="venc-asc" style="width:120px">Vencimento</th><th class="sortable r" data-s="valor-desc" style="width:140px">Valor</th></tr>`;
-  const body=shown.map(x=>{const isD=!!done[x._id];return `<tr class="${isD?'done':''}"><td><input type="checkbox" class="ck" data-id="${x._id}" ${isD?'checked':''}></td><td><div class="nm">${x.forn}</div><div class="sub2">${x.cnpj}</div></td><td class="hide-m mono">${x.ref}</td><td class="r mono">${x.venc}</td><td class="r val">${BRL(x.valor)}</td></tr>`;}).join('');
-  document.getElementById('tableWrap').innerHTML=`<div class="tscroll"><table><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
-  if(btnMore)btnMore.style.display=r.length>LIMIT?'inline-block':'none';
-  document.querySelectorAll('.ck').forEach(c=>c.onchange=()=>{if(c.checked)done[c.dataset.id]=1;else delete done[c.dataset.id];saveDone();c.closest('tr').classList.toggle('done',c.checked);render();});
-  document.querySelectorAll('th.sortable').forEach(th=>th.onclick=()=>{if(sortSel)sortSel.value=th.dataset.s;LIMIT=100;render();});}
-render();
-const btnCsv=document.getElementById('btnCsv');
-if(btnCsv)btnCsv.onclick=()=>{const r=filtered();const esc=s=>'"'+String(s==null?'':s).replace(/"/g,'""')+'"';
-  const head=['Fornecedor','CNPJ','Ref','Vencimento','Valor'];const lines=[head.map(esc).join(';')];
-  r.forEach(x=>lines.push([x.forn,x.cnpj,x.ref,x.venc,String(x.valor).replace('.',',')].map(esc).join(';')));
-  const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='contas-trr_contas.csv';a.click();};
-} else {
-  
-}
-
-// ===== DETALHES A RECEBER =====
-const RECDATA={"periodo": [], "aberto": [{"nome": "GIANCARLO BASSANEZI (FAZENDA BATURI)", "cnpj": "cód. 2154 · 30 d atraso", "qtd": 4, "saldo": 443771.54}, {"nome": "A.T. MOLINA FILHO LTDA (MADEIREIRA NOSSA SENHORA APARE)", "cnpj": "cód. 16 · 580 d atraso", "qtd": 3, "saldo": 365587.02}, {"nome": "MARIA PIA GOMES BARROS DE CARVALHO PICHININ (FAZENDA VELHA)", "cnpj": "cód. 625 · 152 d atraso", "qtd": 7, "saldo": 238304.42}, {"nome": "BUSNELLO TRANSPORTES LTDA (BUSNELLO TRANSPORTES)", "cnpj": "cód. 737 · 55 d atraso", "qtd": 36, "saldo": 225511.34}, {"nome": "VANESSA MASCARELLO (SITIO SAO ROQUE)", "cnpj": "cód. 2162 · 187 d atraso", "qtd": 4, "saldo": 188700.45}, {"nome": "THIAGO HENRIQUE DOS SANTOS MINOTTO (FAZENDA SANTA CRUZ)", "cnpj": "cód. 850 · 43 d atraso", "qtd": 4, "saldo": 162640.56}, {"nome": "CELSO RICARDO BORBA AZOIA E OUTRA (CHACARA CELSINHO)", "cnpj": "cód. 1838 · 26 d atraso", "qtd": 15, "saldo": 158907.94}, {"nome": "LUIZ ANTONIO GATO (FAZENDA CORBELIA)", "cnpj": "cód. 410 · 312 d atraso", "qtd": 11, "saldo": 147964.0}, {"nome": "COOPERATIVA DE MINERADORES E GARIMPEIROS DA REGIAO DE ARIPUA (COOPEMIGA)", "cnpj": "cód. 687 · 31 d atraso", "qtd": 6, "saldo": 131438.43}, {"nome": "ANGELA MARIA TUREK (FAZENDA INAJA)", "cnpj": "cód. 2678 · 149 d atraso", "qtd": 3, "saldo": 128861.11}, {"nome": "MURILO GONÇALVES (FAZENDA SOSSEGO 2)", "cnpj": "cód. 41 · 331 d atraso", "qtd": 4, "saldo": 107425.29}, {"nome": "VALCIR BARBOSA DA SILVA (FAZENDA PRIMAVERA I)", "cnpj": "cód. 657 · 268 d atraso", "qtd": 1, "saldo": 91981.79}, {"nome": "A. F. S. TEIXEIRA DA SILVA LTDA (A. F. S. TEIXEIRA DA SILVA LTD)", "cnpj": "cód. 2497 · 115 d atraso", "qtd": 2, "saldo": 81443.23}, {"nome": "JULIANA TINEU NUNES ZECCHIN (FAZENDA SAO JORGE)", "cnpj": "cód. 1692 · 511 d atraso", "qtd": 1, "saldo": 74796.37}, {"nome": "FAZENDA POTENCIA AGROPECUARIA LTDA (FAZENDA POTENCIA AGROPECUARIA)", "cnpj": "cód. 1706 · 236 d atraso", "qtd": 4, "saldo": 74328.56}, {"nome": "BOVEN AGROPECUARIA LTDA (BOVEN AGROPECUARIA LTDA)", "cnpj": "cód. 1581 · 13 d atraso", "qtd": 1, "saldo": 67028.27}, {"nome": "L. M. INDUSTRIA E COMERCIO DE MADEIRAS LTDA (L. M. MADEIRAS)", "cnpj": "cód. 323 · 14 d atraso", "qtd": 3, "saldo": 66802.97}, {"nome": "CARLOS RONALDO FERRO PRADO (FAZENDA AGUA DO BATELAO)", "cnpj": "cód. 974 · 20 d atraso", "qtd": 3, "saldo": 59326.48}, {"nome": "AGROFORTE COMERCIO DE PRODUTOS AGRICOLAS LTDA (AGROFORTE COMERCIO", "cnpj": "cód. 1241 · 3 d atraso", "qtd": 1, "saldo": 53745.12}, {"nome": "MARIA JOSE DO NASCIMENTO", "cnpj": "cód. 2588 · 2 d atraso", "qtd": 1, "saldo": 50200.0}, {"nome": "MURILO SEIDEL BARZAGUI (FAZENDA SAO PAULO - I -)", "cnpj": "cód. 2839 · 1 d atraso", "qtd": 1, "saldo": 44849.28}, {"nome": "JEAN CARLOS TAVARES DE MIRANDA (FAZENDA PIQUIRI)", "cnpj": "cód. 2594 · 268 d atraso", "qtd": 1, "saldo": 40080.67}, {"nome": "S L F TRANSPORTES LTDA (B. M TRANSPORTES)", "cnpj": "cód. 2445 · 279 d atraso", "qtd": 2, "saldo": 39304.56}, {"nome": "BELGUIOR JOSE DA SILVA (BELGUIOR JOSE DA SILVA)", "cnpj": "cód. 2572 · 13 d atraso", "qtd": 2, "saldo": 38795.87}, {"nome": "ROGERIO DE ALMEIDA PERES ARAUJO (FAZENDA ELDORADO)", "cnpj": "cód. 1939 · 121 d atraso", "qtd": 2, "saldo": 35422.69}, {"nome": "OESTE COMERCIO DE MADEIRAS LTDA EPP (OESTE COMERCIO DE MADEIRAS LTD)", "cnpj": "cód. 552 · 2 d atraso", "qtd": 1, "saldo": 32077.8}, {"nome": "DANILO SEIDEL BARZAGUI (FAZENDA SAO PAULO - II -)", "cnpj": "cód. 2765 · 1 d atraso", "qtd": 1, "saldo": 32035.2}, {"nome": "VALMIR ANTONIO BARZAGUI (FAZENDA NOVA ESPERANCA - II -)", "cnpj": "cód. 2766 · 1 d atraso", "qtd": 1, "saldo": 32035.2}, {"nome": "R.T.G. INTERMEDIACOES FINANCEIRAS E MERCADO DIGITAL LTDA (R.T.G. INTERMEDIACOES FINANCEIRAS E MERCAD", "cnpj": "cód. 2635 · 18 d atraso", "qtd": 2, "saldo": 32008.33}, {"nome": "A. KORB INDUSTRIA E COMERCIO DE MADEIRAS EIRELI (MADEIREIRA ESTRELA DO", "cnpj": "cód. 100 · 10 d atraso", "qtd": 1, "saldo": 31403.93}, {"nome": "ACHILLES CAPPELLESSO JUNIOR (FAZENDA REALIDADE)", "cnpj": "cód. 1574 · 1 d atraso", "qtd": 1, "saldo": 31333.33}, {"nome": "KEVELYN EDUARDO COMIN (FAZENDA PRINCESA)", "cnpj": "cód. 2329 · 0 d atraso", "qtd": 1, "saldo": 30500.0}, {"nome": "OLAVO DEMARI WEBBER (FAZ BOA SORTE)", "cnpj": "cód. 2392 · 1 d atraso", "qtd": 1, "saldo": 29829.33}, {"nome": "MANUEL JOSE FEITEN WAGNER E OUTRO (FAZENDA OURO VERDE)", "cnpj": "cód. 2463 · 296 d atraso", "qtd": 1, "saldo": 24541.68}, {"nome": "EDUARDO JOSE GONCALVES DA SILVA (EDUARDO JOSE GONCALVES DA SILVA)", "cnpj": "cód. 2846 · 11 d atraso", "qtd": 2, "saldo": 21080.4}, {"nome": "APRI - ASSOCIACAO DOS PRODUTORES RURAIS DE ITAPAIUNA (APRI ASSOCIACAO", "cnpj": "cód. 1938 · 0 d atraso", "qtd": 1, "saldo": 20128.0}, {"nome": "PIOVEZAN IMPLEMENTOS AGRICOLAS LTDA (PIOVEZAN TRATORES)", "cnpj": "cód. 114 · 3 d atraso", "qtd": 1, "saldo": 19965.92}, {"nome": "PAULO JOSE MARTINS MANO (FAZENDA TERRA BOA)", "cnpj": "cód. 606 · 2 d atraso", "qtd": 1, "saldo": 18343.08}, {"nome": "JOAQUIM AUGUSTO ALEXANDRE (FAZENDA AGUA BOA)", "cnpj": "cód. 1342 · 426 d atraso", "qtd": 1, "saldo": 18172.88}, {"nome": "MAURI BEPPLER (MAURI BEPPLER)", "cnpj": "cód. 1849 · 2 d atraso", "qtd": 1, "saldo": 18162.36}, {"nome": "CARLOS JACO LINK (FAZENDA QUERENCIA)", "cnpj": "cód. 2092 · 2 d atraso", "qtd": 1, "saldo": 18072.0}, {"nome": "MAGNO GUSLINSKI BARRO (SITIO BOA ESPERANCA)", "cnpj": "cód. 1810 · 20 d atraso", "qtd": 2, "saldo": 16685.0}, {"nome": "MADEIREIRA FENIX LTDA (MADEIREIRA FENIX)", "cnpj": "cód. 2106 · 1 d atraso", "qtd": 2, "saldo": 14729.2}, {"nome": "M. MARTINS MAIA RODRIGUES LTDA (TRANSGLORIA)", "cnpj": "cód. 2402 · 3 d atraso", "qtd": 1, "saldo": 14577.33}, {"nome": "THALLES DE SOUZA RODRIGUES (FAZENDA SANTA ADÉLIA)", "cnpj": "cód. 1699 · 32 d atraso", "qtd": 1, "saldo": 13759.92}, {"nome": "TS BENEFICIAMENTO DE MADEIRAS LTDA (TS BENEFICIAMENTO DE MADEIRAS)", "cnpj": "cód. 2887 · 2 d atraso", "qtd": 1, "saldo": 13252.8}, {"nome": "ARGENTON TRANSPORTES LTDA", "cnpj": "cód. 2818 · 1 d atraso", "qtd": 1, "saldo": 12814.08}, {"nome": "FERNANDO LOPES LOURENCO (FAZENDA MANDURI I)", "cnpj": "cód. 2149 · 1 d atraso", "qtd": 1, "saldo": 12132.27}, {"nome": "VALE CONCRETOS LTDA (CONCRETECH)", "cnpj": "cód. 2856 · 5 d atraso", "qtd": 3, "saldo": 9929.64}, {"nome": "N. DE F. B. DALPIAZ (CASA NOVA MATERIAIS PARA CONSTRUCAO)", "cnpj": "cód. 2676 · 1 d atraso", "qtd": 1, "saldo": 8259.47}, {"nome": "REALCE EMBALAGENS DE RAFIA EIRELI (REALCE EMBALAGENS DE RAFIA)", "cnpj": "cód. 1157 · 2 d atraso", "qtd": 1, "saldo": 6315.16}, {"nome": "INPASA AGROINDUSTRIAL S/A (INPASA BIOENERGIA)", "cnpj": "cód. 1272 · 3 d atraso", "qtd": 1, "saldo": 6275.84}, {"nome": "AGRO-INDUSTRIA BOMBACHA EIRELI (AGRO -INDUSTRIA BOMBACHA)", "cnpj": "cód. 1326 · 0 d atraso", "qtd": 1, "saldo": 4522.5}, {"nome": "HELENO DE SOUZA (FAZENDA SAO MIGUEL)", "cnpj": "cód. 710 · 314 d atraso", "qtd": 2, "saldo": 4287.96}, {"nome": "MCA INSTALADORA LTDA (MCA INSTALADORA LTDA)", "cnpj": "cód. 1454 · 1 d atraso", "qtd": 1, "saldo": 4177.78}, {"nome": "JUNIOR ANTONIO DALPIAZ (JUNIOR ANTONIO DALPIAZ)", "cnpj": "cód. 179 · 3 d atraso", "qtd": 1, "saldo": 4147.0}, {"nome": "CLIENTES ARIPUANA (CLIENTES ARIPUANA)", "cnpj": "cód. 2216 · 284 d atraso", "qtd": 1, "saldo": 3505.2}, {"nome": "AUTO POSTO BANDEIRANTES COMERCIO DE COMBUSTIVEIS LTDA (AUTO POSTO BANDEIRANTES)", "cnpj": "cód. 241 · 7 d atraso", "qtd": 1, "saldo": 3254.35}, {"nome": "ELSO MEZZALIRA (SITIO DOIS VIZINHOS - LOTE 639)", "cnpj": "cód. 2055 · 89 d atraso", "qtd": 1, "saldo": 3055.51}, {"nome": "AUTO POSTO NOVA FRONTEIRA LTDA (AUTO POSTO MEZZALIRA)", "cnpj": "cód. 1619 · 54 d atraso", "qtd": 1, "saldo": 586.04}, {"nome": "AGROPECUARIA EZS LTDA (AGROPECUARIA EZS LTDA)", "cnpj": "cód. 2284 · 4 d atraso", "qtd": 1, "saldo": 122.96}], "cartoes": []};
-(function(){
-  const cont=document.getElementById('recWrap');
-  if(!cont){return;}
-  const BRLr=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2});
-  const NUMr=n=>n.toLocaleString('pt-BR');
-  // build unified rows with origem
-  let R=[];
-  RECDATA.periodo.forEach(x=>R.push({nome:x.nome,cnpj:x.cnpj,qtd:x.qtd,valor:x.saldo,origem:'Clientes 24–31/08'}));
-  RECDATA.cartoes.forEach(x=>R.push({nome:x.forma,cnpj:'—',qtd:1,valor:x.saldo,origem:'Cartões/PIX'}));
-  RECDATA.aberto.forEach(x=>R.push({nome:x.nome,cnpj:x.cnpj,qtd:x.qtd,valor:x.saldo,origem:'Em aberto ≤23/08'}));
-  R.forEach((r,i)=>r._id='rec'+i);
-  let fOrig='all',LIMr=100;
-  const origens=['Clientes 24–31/08','Cartões/PIX','Em aberto ≤23/08'];
-  const totOrig=o=>R.filter(x=>x.origem===o).reduce((s,x)=>s+x.valor,0);
-  const chips=[{id:'all',lab:'Todas as origens',n:R.length}].concat(origens.map(o=>({id:o,lab:o,n:R.filter(x=>x.origem===o).length})));
-  document.getElementById('recChips').innerHTML=chips.map(c=>`<div class="fchip ${c.id==='all'?'on':''}" data-o="${c.id}">${c.lab}<span class="ct">${c.n}</span></div>`).join('');
-  document.querySelectorAll('#recChips .fchip').forEach(el=>el.onclick=()=>{document.querySelectorAll('#recChips .fchip').forEach(x=>x.classList.remove('on'));el.classList.add('on');fOrig=el.dataset.o;LIMr=100;renderR();});
-  const qr=document.getElementById('recQ'),sr=document.getElementById('recSort');
-  [qr,sr].forEach(el=>{if(el)el.addEventListener('input',()=>{LIMr=100;renderR();})});
-  const bmr=document.getElementById('recMore');if(bmr)bmr.onclick=()=>{LIMr+=100;renderR();};
-  function filteredR(){let r=R.slice();
-    if(fOrig!=='all')r=r.filter(x=>x.origem===fOrig);
-    const term=(qr&&qr.value.trim().toLowerCase())||'';
-    if(term)r=r.filter(x=>(x.nome+' '+x.cnpj+' '+x.origem).toLowerCase().includes(term));
-    const s=(sr&&sr.value)||'valor-desc';
-    r.sort((a,b)=>s==='valor-desc'?b.valor-a.valor:s==='valor-asc'?a.valor-b.valor:s==='nome-asc'?a.nome.localeCompare(b.nome):0);
-    return r;}
-  function renderR(){const r=filteredR();const shown=r.slice(0,LIMr);const soma=r.reduce((s,x)=>s+x.valor,0);
-    document.getElementById('recCount').innerHTML=`Exibindo <b>${NUMr(shown.length)}</b> de <b>${NUMr(r.length)}</b> lançamentos · total no filtro: <b>${BRLr(soma)}</b>`;
-    const head=`<tr><th class="sortable" data-s="nome-asc">Cliente / Origem</th><th class="hide-m" style="width:150px">Código / atraso</th><th style="width:150px">Tipo</th><th class="sortable r" data-s="valor-desc" style="width:150px">A receber</th></tr>`;
-    const body=shown.map(x=>{let badge='';const bc=x.origem==='Cartões/PIX'?'#215e8c':x.origem==='Em aberto ≤23/08'?'#c8791b':'#0e5a3c';
-      return `<tr><td><div class="nm">${x.nome}</div><div class="sub2">${x.qtd} título(s)</div></td><td class="hide-m mono">${x.cnpj}</td><td><span style="font-size:11px;font-weight:600;padding:3px 8px;border-radius:5px;background:${bc}18;color:${bc}">${x.origem}</span></td><td class="r val" style="color:var(--brand)">${BRLr(x.valor)}</td></tr>`;}).join('');
-    document.getElementById('recWrap').innerHTML=`<div class="tscroll"><table><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
-    if(bmr)bmr.style.display=r.length>LIMr?'inline-block':'none';
-    document.querySelectorAll('#tab-receber th.sortable').forEach(th=>th.onclick=()=>{if(sr)sr.value=th.dataset.s;LIMr=100;renderR();});}
-  renderR();
-  const bc=document.getElementById('recCsv');
-  if(bc)bc.onclick=()=>{const r=filteredR();const esc=s=>'"'+String(s==null?'':s).replace(/"/g,'""')+'"';
-    const head=['Cliente','CNPJ','Origem','Titulos','A receber'];const lines=[head.map(esc).join(';')];
-    r.forEach(x=>lines.push([x.nome,x.cnpj,x.origem,x.qtd,String(x.valor).replace('.',',')].map(esc).join(';')));
-    const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
-    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='contas-trr_receber.csv';a.click();};
-})();
-
-</script></body></html>
+</script>
+<footer><div class="wrap">Auto Posto Dois Molek · CNPJ 09.077.866/0001-75 · A pagar 25–31/08 · A receber 24–31/08<br>Fontes: Argo Gerenciador v.11.08.03 (contas a pagar e a receber) e Plenus Software (relatório de cobrança TRR).<br>Documento interno Rede Bandeirantes · valores conferidos contra os totais dos relatórios originais.</div></footer>
+</body></html>
